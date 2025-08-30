@@ -34,7 +34,7 @@ class ConnectScreen(BoxLayout):
         self.bind(pos=self.update_rects, size=self.update_rects)
 
         self.label = Label(
-            text="Δώσε την IP του server:",
+            text="Enter the server IP:",
             font_size=50,
             color=(1, 1, 1, 1),  # Λευκό κείμενο για να φαίνεται στο σκούρο φόντο
             bold=True
@@ -42,7 +42,7 @@ class ConnectScreen(BoxLayout):
         self.add_widget(self.label)
 
         self.ip_input = TextInput(
-            hint_text="π.χ. 192.168.1.10",
+            hint_text="e.g. 192.168.1.10",
             multiline=False,
             font_size=50,
             size_hint_y=None,
@@ -55,7 +55,7 @@ class ConnectScreen(BoxLayout):
         self.add_widget(self.ip_input)
 
         self.connect_btn = Button(
-            text="Σύνδεση",
+            text="Login",
             font_size=50,
             size_hint=(1, 0.4),
             background_normal='',
@@ -83,9 +83,9 @@ class ConnectScreen(BoxLayout):
             self.manager.current = "control"
         except Exception:
             popup = Popup(
-                title="Σφάλμα Σύνδεσης",
+                title="Connection Error",
                 content=Label(
-                    text="Δεν βρέθηκε ο server! Ελέγξτε την IP.",
+                    text="Server not found! Check the IP.",
                     font_size=20,
                     color=(1, 0.3, 0.3, 1)
                 ),
@@ -115,7 +115,7 @@ class ControlScreen(BoxLayout):
         for text, cmd, color in buttons:
             btn = Button(
                 text=text,
-                font_size=26,
+                font_size=60,
                 size_hint=(1, 0.3),
                 background_normal='',
                 background_color=color,
@@ -129,9 +129,9 @@ class ControlScreen(BoxLayout):
             self.manager.client_socket.sendall(command.encode())
         except Exception:
             popup = Popup(
-                title="Σφάλμα Αποσύνδεσης",
+                title="Disconnection Error",
                 content=Label(
-                    text="Αποσυνδέθηκε ο server! Επιστροφή...",
+                    text="The server has been disconnected! Back...",
                     font_size=20,
                     color=(1, 0.3, 0.3, 1)
                 ),
@@ -161,10 +161,11 @@ class MyScreenManager(ScreenManager):
 # -------- Εφαρμογή --------
 class RemoteControlApp(App):
     def build(self):
-        self.title = "Τηλεχειριστήριο"
+        self.title = "GDREMOTEHUB"
         return MyScreenManager()
 
 
 if __name__ == "__main__":
 
     RemoteControlApp().run()
+
