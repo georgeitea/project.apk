@@ -35,7 +35,7 @@ class ConnectScreen(BoxLayout):
 
         self.label = Label(
             text="Δώσε την IP του server:",
-            font_size=28,
+            font_size=50,
             color=(1, 1, 1, 1),  # Λευκό κείμενο για να φαίνεται στο σκούρο φόντο
             bold=True
         )
@@ -44,7 +44,7 @@ class ConnectScreen(BoxLayout):
         self.ip_input = TextInput(
             hint_text="π.χ. 192.168.1.10",
             multiline=False,
-            font_size=24,
+            font_size=50,
             size_hint_y=None,
             height=50,
             background_normal='',
@@ -56,7 +56,7 @@ class ConnectScreen(BoxLayout):
 
         self.connect_btn = Button(
             text="Σύνδεση",
-            font_size=26,
+            font_size=50,
             size_hint=(1, 0.4),
             background_normal='',
             background_color=(0.2, 0.8, 0.2, 1),  # Πιο έντονο πράσινο
@@ -166,4 +166,5 @@ class RemoteControlApp(App):
 
 
 if __name__ == "__main__":
+
     RemoteControlApp().run()
